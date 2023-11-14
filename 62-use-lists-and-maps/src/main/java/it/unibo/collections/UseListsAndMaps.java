@@ -1,6 +1,8 @@
 package it.unibo.collections;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +40,7 @@ public final class UseListsAndMaps {
             int numbetToAdd = 1000 + i;
             numberList.add(Integer.valueOf(numbetToAdd));
         }
-
+    
         timeArray = System.nanoTime() - timeArray;
         final var millis = TimeUnit.NANOSECONDS.toMillis(timeArray);
         System.out.println(// NOPMD
@@ -140,6 +142,21 @@ public final class UseListsAndMaps {
          *
          * Oceania -> 38,304,000
          */
+        Map<String,BigInteger> worldMap = new HashMap<String,BigInteger>();
+        worldMap.put("Africa", BigInteger.valueOf(1110635000));
+        worldMap.put("America", BigInteger.valueOf(972005000));
+        worldMap.put("Antartica", BigInteger.valueOf(0));
+        worldMap.put("Asia", BigInteger.valueOf(Long.parseLong("4298723000")));
+        worldMap.put("Europa", BigInteger.valueOf(710635000));
+        worldMap.put("Oceania", BigInteger.valueOf(310635000));
+    
+        
+
+        for(BigInteger elements: worldMap.values()){
+            population = population + Long.longValue(elements);
+        }
+
+    
         /*
          * 8) Compute the population of the world
          */
